@@ -6,3 +6,5 @@ stage/*
 snap/.snapcraft/*
 
 .vscode/*
+
+snap/snapcraft\.yaml
