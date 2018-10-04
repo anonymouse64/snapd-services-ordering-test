@@ -21,8 +21,8 @@ for i in {1..10}; do
     sudo snap logs ${NEW_SNAP_NAME} > ${NEW_SNAP_NAME}.log
 
     # get the timestamps from when service1 and service3 are started
-    SVC_1_TS=$(cat ${NEW_SNAP_NAME}.log | grep "this is the start of service1" | awk '{print $1}')
-    SVC_3_TS=$(cat ${NEW_SNAP_NAME}.log | grep "this is the start of service3" | awk '{print $1}')
+    SVC_1_TS=$(cat ${NEW_SNAP_NAME}.log | grep "service1 started, sleeping" | awk '{print $1}')
+    SVC_3_TS=$(cat ${NEW_SNAP_NAME}.log | grep "service3 started, sleeping" | awk '{print $1}')
 
     # strip the seconds out from the time stamps from the log
     # also note since we're doing arithmetic we need to strip leading zeros i.e. "09" needs to be "9"

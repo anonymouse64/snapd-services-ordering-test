@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "this is the start of service3, sleeping"
+echo "service3 started, sleeping"
 
 sleep 5
 

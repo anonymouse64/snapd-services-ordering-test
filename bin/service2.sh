@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "this is the start of service2"
+echo "service2 started"
 
 systemd-notify --ready
 
