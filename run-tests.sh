@@ -44,7 +44,8 @@ for i in {1..10}; do
     SVC_1_SECONDS_PLUS4=$(($SVC_1_SECONDS + 4))
     if [ "$SVC_3_SECONDS" -lt "$SVC_1_SECONDS_PLUS4" ]; then
         echo "invalid service ordering for test ${NEW_SNAP_NAME}"
-        echo "See log file: ${NEW_SNAP_NAME}.log"
+        echo "See log output:"
+        cat ${NEW_SNAP_NAME}.log
     fi
 
     # remove the snap
