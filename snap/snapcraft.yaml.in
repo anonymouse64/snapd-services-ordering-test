@@ -1,0 +1,37 @@
+name: SNAP-NAME
+version: '1.0'
+summary: test snapd service dependency ordering
+description: test of snapd
+
+grade: stable
+confinement: strict
+
+# the desired ordering of these services is :
+
+# service1 -> service2 -> service3
+
+apps:
+  service1:
+    command: bin/service1.sh
+    daemon: notify
+    plugs: [daemon-notify]
+  service2:
+    command: bin/service2.sh
+    daemon: notify
+    passthrough:
+      after:
+        - service1
+    plugs: [daemon-notify]
+  service3: 
+    command: bin/service3.sh
+    daemon: notify
+    passthrough:
+      after:
+        - service2
+    plugs: [daemon-notify]
+
+parts:
+  scripts:
+    plugin: dump
+    prime: 
+      - bin/*

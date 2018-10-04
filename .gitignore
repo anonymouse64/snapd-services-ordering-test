@@ -1,0 +1,8 @@
+*.log
+*.snap
+prime/*
+parts/*
+stage/*
+snap/.snapcraft/*
+
+.vscode/*
