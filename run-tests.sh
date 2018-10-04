@@ -27,8 +27,8 @@ for i in {1..10}; do
     # strip the seconds out from the time stamps from the log
     # also note since we're doing arithmetic we need to strip leading zeros i.e. "09" needs to be "9"
     # otherwise the arithmetic is done in a different base
-    SVC_1_SECONDS=$(date --date="$SVC_1_TS" "+%S" | sed 's/^0*//')
-    SVC_3_SECONDS=$(date --date="$SVC_3_TS" "+%S" | sed 's/^0*//')
+    SVC_1_SECONDS=$(date --date="$SVC_1_TS" "+%s" | sed 's/^0*//')
+    SVC_3_SECONDS=$(date --date="$SVC_3_TS" "+%s" | sed 's/^0*//')
 
     # also handle the case where the time stamp was "00", then we need to make it just "0"
     if [ -z "${SVC_1_SECONDS}" ]; then 
