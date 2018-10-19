@@ -2,19 +2,13 @@
 
 # run ten times
 for i in {1..10}; do 
-    # clean up any previous snaps
-    if [ -f snap/snapcraft.yaml ]; then
-        snapcraft clean > /dev/null
-        rm -rf snap/snapcraft.yaml 
-    fi
-
     # always remove existing snaps
     rm -rf *.snap
 
     # generate a random name for the snap and build this snap
     NEW_SNAP_NAME=test-services-$RANDOM
-    sed -e "s/SNAP-NAME/$NEW_SNAP_NAME/" snap/snapcraft.yaml.in > snap/snapcraft.yaml
-    snapcraft > /dev/null
+    sed -e "s/SNAP-NAME/$NEW_SNAP_NAME/" meta/snap.yaml.in > meta/snap.yaml
+    snap pack
 
     # install the snap and then get the logs from the snap
     sudo snap install --devmode ${NEW_SNAP_NAME}*.snap > /dev/null
