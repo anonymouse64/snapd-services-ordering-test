@@ -8,3 +8,5 @@ snap/.snapcraft/*
 .vscode/*
 
 snap/snapcraft\.yaml
+
+meta/snap\.yaml
